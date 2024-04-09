@@ -28,45 +28,45 @@ FROM outils_emprunt
 WHERE date_retour IS NULL;
 
 -- 6.   R�digez la requ�te qui affiche le num�ro des emprunts faits avant 2014./3
-SELECT num_emprunt  AS "Num�ro d'emprunt",
+SELECT num_emprunt  AS "Numero d'emprunt",
        date_emprunt AS "Date d'emprunt"
 FROM outils_emprunt
 WHERE date_emprunt < '1-Jan-14';        
 -- 7.   R�digez la requ�te qui affiche le nom et le code des outils dont la couleur d�but par la lettre � j � (indice : utiliser UPPER() et LIKE) /3
 SELECT nom              AS "Nom de l'outil",
-       code_outil       AS "Num�ro de l'outil",
-       caracteristiques AS "Caract�ristique"
+       code_outil       AS "Numero de l'outil",
+       caracteristiques AS "Caracteristique"
 FROM outils_outil
 WHERE upper(caracteristiques) LIKE ( '%J%' );
 -- 8.   R�digez la requ�te qui affiche le nom et le code des outils fabriqu�s par Stanley. /2
-SELECT code_outil AS "Num�ro de l'outil",
+SELECT code_outil AS "Numero de l'outil",
        nom        AS "Nom de l'outil",
        fabricant  AS fabricant
 FROM outils_outil
 WHERE upper(fabricant) LIKE 'STANLEY';
 -- 9.   R�digez la requ�te qui affiche le nom et le fabricant des outils fabriqu�s de 2006 � 2008 (ANNEE). /2
-SELECT code_outil AS "Num�ro de l'outil",
+SELECT code_outil AS "Numero de l'outil",
        nom        AS "Nom de l'outil",
        fabricant  AS fabricant,
-       annee      AS "Ann�e"
+       annee      AS "Annee"
 FROM outils_outil
 WHERE annee BETWEEN 2006 AND 2008;
 -- 10.  R�digez la requ�te qui affiche le code et le nom des outils qui ne sont pas de � 20 volts �. /3
-SELECT code_outil       AS "Num�ro de l'outil",
+SELECT code_outil       AS "Numero de l'outil",
        nom              AS "Nom de l'outil",
-       caracteristiques AS "Caract�ristique"
+       caracteristiques AS "Caracteristique"
 FROM outils_outil
 WHERE caracteristiques NOT LIKE ( '%20 volt%' );
 -- 11.  R�digez la requ�te qui affiche le nombre d�outils qui n�ont pas �t� fabriqu�s par Makita. /2
-SELECT code_outil AS "Num�ro de l'outil",
+SELECT code_outil AS "Numero de l'outil",
        nom        AS "Nom de l'outil",
        fabricant  AS fabricant
 FROM outils_outil
 WHERE fabricant NOT LIKE ( 'Makita' );
 -- 12.  R�digez la requ�te qui affiche les emprunts des clients de Vancouver et Regina. Il faut afficher le nom complet de l�usager, le num�ro d�emprunt, la dur�e de l�emprunt et le prix de l�outil (indice : n�oubliez pas de traiter le NULL possible (dans les dates et le prix) et utilisez le IN). /5
 SELECT concat(u.prenom, ' ', u.nom_famille) AS "Nom complet",
-       u.num_usager                         AS "Num�ro d'usager",
-       e.num_emprunt                        AS "Num�ro d'emprunt",
+       u.num_usager                         AS "Numero d'usager",
+       e.num_emprunt                        AS "Numero d'emprunt",
        o.prix,
        e.date_emprunt                         AS "Date d'emprunt",
        e.date_retour                          AS "Date de retour",
